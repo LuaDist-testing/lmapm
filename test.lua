@@ -1,7 +1,8 @@
 -- test mapm library
 
 -- reuse test code from bc library
-bc=require"mapm"
+local mapm=require"mapm"
+local bc=mapm
 
 ------------------------------------------------------------------------------
 print(bc.version)

@@ -1,8 +1,8 @@
 /*
 * lmapm.c
-* big-number library for Lua 5.1 based on the MAPM library
+* big-number library for Lua 5.2 based on the MAPM library
 * Luiz Henrique de Figueiredo <lhf@tecgraf.puc-rio.br>
-* 01 May 2012 11:55:29
+* 09 May 2012 22:21:40
 * This code is hereby placed in the public domain.
 */
 
@@ -36,8 +36,7 @@ static M_APM Bnew(lua_State *L)
 {
  M_APM x=m_apm_init();
  lua_boxpointer(L,x);
- luaL_getmetatable(L,MYTYPE);
- lua_setmetatable(L,-2);
+ luaL_setmetatable(L,MYTYPE);
  return x;
 }
 
@@ -458,8 +457,7 @@ static const luaL_Reg R[] =
 LUALIB_API int luaopen_mapm(lua_State *L)
 {
  luaL_newmetatable(L,MYTYPE);
- lua_setglobal(L,MYNAME);
- luaL_register(L,MYNAME,R);
+ luaL_setfuncs(L,R,0);
  lua_pushliteral(L,"version");			/** version */
  lua_pushliteral(L,MYVERSION);
  lua_settable(L,-3);

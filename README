@@ -1,4 +1,4 @@
-This is a big-number library for Lua 5.1. It is based on the arbitrary
+This is a big-number library for Lua 5.2. It is based on the arbitrary
 precision library MAPM written by Michael C. Ring. MAPM is available at
 	http://www.tc.umn.edu/~ringx004/mapm-main.html
 
