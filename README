@@ -1,0 +1,36 @@
+This is a big-number library for Lua 5.1. It is based on the arbitrary
+precision library MAPM written by Michael C. Ring. MAPM is available at
+	http://www.tc.umn.edu/~ringx004/mapm-main.html
+
+To try this Lua library, edit Makefile to reflect your installation of Lua
+and MAPM. Then run make. This will build the library and run a simple test.
+For detailed installation instructions, see
+        http://www.tecgraf.puc-rio.br/~lhf/ftp/lua/install.html
+
+There is no manual but the library is simple and intuitive, specially given
+the metamethods; see the summary below. Read also test.lua, which shows the
+library in action.
+
+This code is hereby placed in the public domain.
+Please send comments, suggestions, and bug reports to lhf@tecgraf.puc-rio.br .
+
+-------------------------------------------------------------------------------
+
+mapm library:
+ abs(x) 		 digits([n]) 		 number(x) 
+ acosh(x) 		 div(x,y) 		 pow(x,y) 
+ acos(x) 		 exponent(x) 		 round(x) 
+ add(x,y) 		 exp(x) 		 sign(x) 
+ asinh(x) 		 factorial(x) 		 sincos(x) 
+ asin(x) 		 floor(x) 		 sinh(x) 
+ atan2(y,x) 		 idiv(x,y) 		 sin(x) 
+ atanh(x) 		 inv(x) 		 sqrt(x) 
+ atan(x) 		 iseven(x) 		 sub(x,y) 
+ cbrt(x) 		 isint(x) 		 tanh(x) 
+ ceil(x) 		 isodd(x) 		 tan(x) 
+ compare(x,y) 		 log10(x) 		 tostring(x,[n,exp]) 
+ cosh(x) 		 log(x) 		 version 
+ cos(x) 		 mul(x,y) 
+ digitsin(x) 		 neg(x) 
+
+-------------------------------------------------------------------------------
