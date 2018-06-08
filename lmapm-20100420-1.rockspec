@@ -1,16 +1,21 @@
 -- This file was automatically generated for the LuaDist project.
 
+-- History:
+--
+-- 17-Nov-2009 Updated by Pierre to support building on windows
+--
+
 package="lmapm"
-version="20070628-2"
+version="20100420-1"
 -- LuaDist source
 source = {
-  tag = "20070628-2",
+  tag = "20100420-1",
   url = "git://github.com/LuaDist-testing/lmapm.git"
 }
 -- Original source
 -- source = {
 --    url = "http://www.tecgraf.puc-rio.br/~lhf/ftp/lua//5.1/lmapm.tar.gz",
---    md5 = "eb0e7ed49f6b75b1db193f6b894cb829",
+--    md5 = "d74227f9319b60f5e6a9ba152d77b6d1",
 --    dir = "mapm"
 -- }
 description = {
@@ -25,25 +30,29 @@ dependencies = {
    "lua >= 5.1"
 }
 
+
 external_dependencies = {
+
+   platforms= {
+      windows= {
+         MAPM={
+            library = "mapm.lib",
+         },
+      },
+   },
+
    MAPM = {
       header = "m_apm.h",
       library = "libmapm.a",
    }
 }
-build = {
-   type = "make",
-   install_pass = false,
-   build_target = "so",
-   build_variables = {
-      LUAINC = "$(LUA_INCDIR)",
-      LUALIB = "$(LUA_LIBDIR)",
-      LUABIN = "$(LUA_BINDIR)" ,
-      MAPM = "$(MAPM_LIBDIR)",
-      CC = "$(CC) -I$(LUA_INCDIR) -I$(MAPM_INCDIR)"
 
-   },
-   install = {
-      lib = { "mapm.so" }
+build = {
+   type= "builtin",
+   modules = {
+      mapm = {
+         sources = { "lmapm.c" },
+         libraries = {"mapm" },
+      }
    }
 }
