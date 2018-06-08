@@ -6,16 +6,16 @@
 --
 
 package="lmapm"
-version="20100420-1"
+version="20120501-1"
 -- LuaDist source
 source = {
-  tag = "20100420-1",
+  tag = "20120501-1",
   url = "git://github.com/LuaDist-testing/lmapm.git"
 }
 -- Original source
 -- source = {
 --    url = "http://www.tecgraf.puc-rio.br/~lhf/ftp/lua//5.1/lmapm.tar.gz",
---    md5 = "d74227f9319b60f5e6a9ba152d77b6d1",
+--    md5="cf3bbfbd4d84a510ef06e601b867a526",
 --    dir = "mapm"
 -- }
 description = {

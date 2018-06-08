@@ -2,7 +2,7 @@
 * lmapm.c
 * big-number library for Lua 5.1 based on the MAPM library
 * Luiz Henrique de Figueiredo <lhf@tecgraf.puc-rio.br>
-* 19 Apr 2010 09:05:40
+* 01 May 2012 11:55:29
 * This code is hereby placed in the public domain.
 */
 
@@ -17,7 +17,7 @@
 	(*(void **)(lua_newuserdata(L, sizeof(void *))) = (u))
 
 #define MYNAME		"mapm"
-#define MYVERSION	MYNAME " library for " LUA_VERSION " / Apr 2009 / "\
+#define MYVERSION	MYNAME " library for " LUA_VERSION " / May 2012 / "\
 			"using MAPM " MAPM_LIB_SHORT_VERSION
 #define MYTYPE		MYNAME " bignumber"
 

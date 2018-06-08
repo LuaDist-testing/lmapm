@@ -1,7 +1,7 @@
 # makefile for mapm binding for Lua
 
 # change these to reflect your Lua installation
-LUA= /tmp/lhf/lua-5.1.4
+LUA= /tmp/lhf/lua-5.1.5
 LUAINC= $(LUA)/src
 LUALIB= $(LUA)/src
 LUABIN= $(LUA)/src
@@ -13,15 +13,15 @@ LUABIN= $(LUA)/src
 #LUABIN= $(LUA)/bin
 
 # change this to reflect your MAPM installation
-MAPM= /tmp/lhf/mapm_4.9.5
+MAPM= /tmp/lhf/mapm_4.9.5a
 
 # probably no need to change anything below here
 CC= gcc
 CFLAGS= $(INCS) $(WARN) -O2 $G
-WARN= -ansi -pedantic -Wall
+WARN= -ansi -pedantic -Wall -Wextra
 INCS= -I$(LUAINC) -I$(MAPM)
 MAKESO= $(CC) -shared
-#MAKESO= env MACOSX_DEPLOYMENT_TARGET=10.3 $(CC) -bundle -undefined dynamic_lookup
+#MAKESO= $(CC) -bundle -undefined dynamic_lookup
 
 MYNAME= mapm
 MYLIB= l$(MYNAME)
@@ -47,23 +47,5 @@ clean:
 doc:
 	@echo "$(MYNAME) library:"
 	@fgrep '/**' $(MYLIB).c | cut -f2 -d/ | tr -d '*' | sort | column
-
-# distribution
-
-FTP= www:www/ftp/lua/5.1
-F= http://www.tecgraf.puc-rio.br/~lhf/ftp/lua/5.1/$A
-D= $(MYNAME)
-A= $(MYLIB).tar.gz
-TOTAR= Makefile,README,$(MYLIB).c,test.lua
-
-distr:	clean
-	tar zcvf $A -C .. $D/{$(TOTAR)}
-	touch -r $A .stamp
-	scp -p $A $(FTP)
-
-diff:	clean
-	wget -q -N $F
-	tar zxf $A
-	diff $D .
 
 # eof
